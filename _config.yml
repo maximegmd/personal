@@ -24,13 +24,13 @@ repository               : "maximegmd/personal"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Maxime Griot
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "Research scientist working on integrating multimodal models in clinical workflows"
+  location         : "Belgium"
+  employer         : "Université catholique de Louvain"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : # email 
 
   # Academic websites
   academia         : # URL
