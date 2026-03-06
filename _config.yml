@@ -24,13 +24,13 @@ repository               : "maximegmd/personal"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Maxime Griot
+  name             : "Maxime Griot"
   pronouns         : # example: "she/her"  
   bio              : "Research scientist working on integrating multimodal models in clinical workflows"
   location         : "Belgium"
   employer         : "Université catholique de Louvain"
   uri              : # URL
-  email            : "" # email 
+  email            : # email 
 
   # Academic websites
   academia         : # URL
