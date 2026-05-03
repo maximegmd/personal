@@ -1,0 +1,45 @@
+{% assign post = include.post %}
+{% assign year = post.date | date: "%Y" %}
+
+{% case post.category %}
+  {% when 'manuscripts' %}
+    {% assign tag_class = 'tag_Journal' %}
+    {% assign tag_label = 'Journal' %}
+  {% when 'conferences' %}
+    {% assign tag_class = 'tag_Conference' %}
+    {% assign tag_label = 'Conference' %}
+  {% when 'books' %}
+    {% assign tag_class = 'tag_Chapter' %}
+    {% assign tag_label = 'Book Chapter' %}
+  {% else %}
+    {% assign tag_class = 'tag_Preprint' %}
+    {% assign tag_label = 'Preprint' %}
+{% endcase %}
+
+{% if post.pub_type %}
+  {% assign tag_label = post.pub_type %}
+  {% assign tag_class = 'tag_' | append: post.pub_type | replace: ' ', '_' %}
+{% endif %}
+
+{% assign authors_part = post.citation | split: '(' | first | strip %}
+{% if authors_part contains '.' %}
+  {% assign last_char = authors_part | slice: -1, 1 %}
+  {% if last_char == ',' %}
+    {% assign authors_part = authors_part | slice: 0, authors_part.size | replace_first: ',', '' %}
+  {% endif %}
+{% endif %}
+{% assign authors_part = authors_part | replace: '&amp;', '&' | replace: 'Griot', '<span class="mainAuthor">Griot</span>' %}
+
+<li>
+  <span class="author">{{ authors_part }}.</span>
+  <span class="title">
+    {% if post.paperurl %}<a href="{{ post.paperurl }}">{{ post.title }}.</a>{% else %}{{ post.title }}.{% endif %}
+  </span>
+  {% if post.venue %}<span class="venue">{{ post.venue }}.</span>{% endif %}
+  <span class="year">{{ year }}.</span>
+  <span class="tag {{ tag_class }}">{{ tag_label }}</span>
+  {% if post.paperurl or post.slidesurl or post.bibtexurl %}
+    <br/>
+    [&nbsp;{% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}{% if post.slidesurl %}{% if post.paperurl %},&nbsp;{% endif %}<a href="{{ post.slidesurl }}">Slides</a>{% endif %}{% if post.bibtexurl %}{% if post.paperurl or post.slidesurl %},&nbsp;{% endif %}<a href="{{ post.bibtexurl }}">BibTeX</a>{% endif %}&nbsp;]
+  {% endif %}
+</li>

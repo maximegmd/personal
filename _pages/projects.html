@@ -1,0 +1,32 @@
+---
+layout: archive
+title: "Projects"
+permalink: /projects/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% assign sorted_projects = site.projects | sort: 'order' %}
+
+{% for project in sorted_projects %}
+<div class="project-card">
+  {% if project.image %}
+  <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="project-card__image" />
+  {% endif %}
+  <div class="project-card__body">
+    <p>
+      <b>{{ project.title }}:</b>
+      {{ project.content | markdownify | remove: '<p>' | remove: '</p>' }}
+    </p>
+    {% if project.links %}
+    <p class="project-card__links">
+      {% for link in project.links %}
+        <a href="{{ link.url }}">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
+      {% endfor %}
+    </p>
+    {% endif %}
+  </div>
+</div>
+<div class="clear"></div>
+{% endfor %}
