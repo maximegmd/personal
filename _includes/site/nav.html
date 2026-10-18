@@ -1,0 +1,24 @@
+<nav class="navbar" aria-label="Main">
+  <div class="container">
+    {% if page.url != "/" %}<a class="navbar-brand" href="{{ '/' | relative_url }}">{{ site.author.name | default: site.title }}</a>{% endif %}
+    <button class="nav-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li{% if page.url == "/" %} class="active"{% endif %}><a href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>about</a></li>
+      {%- for link in site.data.navigation.main %}
+        {%- assign link_url = link.url | relative_url %}
+        {%- assign is_active = false %}
+        {%- if page.url == link.url %}{% assign is_active = true %}{% endif %}
+        {%- if link.url == "/publications/" and page.collection == "publications" %}{% assign is_active = true %}{% endif %}
+        {%- if link.url == "/projects/" and page.collection == "projects" %}{% assign is_active = true %}{% endif %}
+      <li{% if is_active %} class="active"{% endif %}><a href="{% if link.url contains '://' %}{{ link.url }}{% else %}{{ link_url }}{% endif %}"{% if is_active %} aria-current="page"{% endif %}>{{ link.title | downcase }}</a></li>
+      {%- endfor %}
+      <li>
+        <button class="theme-toggle" id="theme-toggle" type="button" title="Toggle light / dark theme" aria-label="Toggle light / dark theme">
+          <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,36 @@
+{%- assign pub = include.pub -%}
+{%- assign year = pub.date | date: "%Y" -%}
+{%- assign authors = pub.authors -%}
+{%- for n in site.self_names -%}
+  {%- capture me_html -%}<span class="me">{{ n }}</span>{%- endcapture -%}
+  {%- assign authors = authors | replace: n, me_html -%}
+{%- endfor -%}
+{%- case pub.category -%}
+  {%- when "manuscripts" -%}{%- assign kind = "Journal" -%}
+  {%- when "conferences" -%}{%- assign kind = "Conference" -%}
+  {%- when "books" -%}{%- assign kind = "Book chapter" -%}
+  {%- else -%}{%- assign kind = "Preprint" -%}
+{%- endcase -%}
+{%- assign link = pub.paperurl | default: pub.pdf | default: pub.url -%}
+<li class="bib-entry" data-year="{{ year }}" data-tags="{{ pub.topics | join: ' ' }}">
+  <div class="bib-title"><a href="{{ link }}">{{ pub.title }}</a></div>
+  {%- if authors %}
+  <div class="bib-authors">{{ authors }}</div>
+  {%- endif %}
+  <div class="bib-periodical">
+    <span class="badge">{{ pub.venue_short | default: kind }}</span>
+    {%- if pub.award %}<span class="badge badge-award">{{ pub.award }}</span>{% endif %}
+    <span class="venue-name">{{ pub.venue }}</span>
+    <span class="year">{{ year }}</span>
+  </div>
+  <div class="bib-links">
+    {%- if pub.paperurl %}<a class="btn-sm" href="{{ pub.paperurl }}">paper</a>{% endif %}
+    {%- if pub.code %}<a class="btn-sm" href="{{ pub.code }}">code</a>{% endif %}
+    {%- if pub.slidesurl %}<a class="btn-sm" href="{{ pub.slidesurl }}">slides</a>{% endif %}
+    {%- if pub.bibtexurl %}<a class="btn-sm" href="{{ pub.bibtexurl }}">bib</a>{% endif %}
+    {%- if pub.citation %}<button class="btn-sm" type="button" data-cite-toggle aria-expanded="false" aria-controls="cite-{{ pub.slug }}{{ include.suffix }}">cite</button>{% endif %}
+  </div>
+  {%- if pub.citation %}
+  <div class="bib-cite" id="cite-{{ pub.slug }}{{ include.suffix }}"><p>{{ pub.citation }}</p></div>
+  {%- endif %}
+</li>

@@ -12,3 +12,6 @@ end
 
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
+gem "csv"
+gem "base64"
+gem "bigdecimal"

@@ -1,0 +1,18 @@
+# Research topics used for the publication filter buttons and the
+# small coloured label on highlighted publication tiles.
+# Tag a publication by adding e.g. `topics: [evaluation, deployment]`
+# to its front matter.
+- slug: safety
+  label: AI safety & robustness
+- slug: evaluation
+  label: Evaluation
+- slug: medical-llms
+  label: Medical LLMs
+- slug: training
+  label: LLM training
+- slug: deployment
+  label: Clinical deployment
+- slug: human-ai
+  label: Human–AI collaboration
+- slug: regulation
+  label: Policy & regulation

@@ -1,0 +1,11 @@
+{%- assign a = site.author -%}
+<div class="social" aria-label="Contact and profiles">
+  {%- if a.email %}<a href="mailto:{{ a.email }}" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>{% endif %}
+  {%- if a.googlescholar %}<a href="{{ a.googlescholar }}" title="Google Scholar" aria-label="Google Scholar" rel="me noopener" target="_blank"><i class="ai ai-google-scholar"></i></a>{% endif %}
+  {%- if a.orcid %}<a href="{{ a.orcid }}" title="ORCID" aria-label="ORCID" rel="me noopener" target="_blank"><i class="ai ai-orcid"></i></a>{% endif %}
+  {%- if a.pubmed %}<a href="{{ a.pubmed }}" title="PubMed" aria-label="PubMed" rel="noopener" target="_blank"><i class="ai ai-pubmed"></i></a>{% endif %}
+  {%- if a.github %}<a href="https://github.com/{{ a.github }}" title="GitHub" aria-label="GitHub" rel="me noopener" target="_blank"><i class="fab fa-github"></i></a>{% endif %}
+  {%- if a.linkedin %}<a href="https://www.linkedin.com/in/{{ a.linkedin }}" title="LinkedIn" aria-label="LinkedIn" rel="me noopener" target="_blank"><i class="fab fa-linkedin"></i></a>{% endif %}
+  {%- if a.twitter %}<a href="https://x.com/{{ a.twitter }}" title="X / Twitter" aria-label="X / Twitter" rel="me noopener" target="_blank"><i class="fab fa-x-twitter"></i></a>{% endif %}
+  {%- if a.bluesky %}<a href="https://bsky.app/profile/{{ a.bluesky }}" title="Bluesky" aria-label="Bluesky" rel="me noopener" target="_blank"><i class="fab fa-bluesky"></i></a>{% endif %}
+</div>

@@ -1,0 +1,46 @@
+# "Latest news" on the home page, newest first.
+# `text` is Markdown. The home page shows the first 6 entries.
+- date: "10/2026"
+  text: >-
+    I'll be joining **Anthropic** in November 2026 as an **AI Safety Research Fellow**!
+
+- date: "08/2026"
+  text: >-
+    Joined **Jonathan Chen's lab at Stanford University** as an independent researcher, working on clinical data anonymization, synthetic data, and evaluations.
+
+- date: "07/2026"
+  text: >-
+    [Attacking Medical Vision-Language Models with Query-Based Zero-Order Optimization](https://openreview.net/forum?id=5WKFhl03Xm) appears at the **Trustworthy AI for Good (AI4GOOD) Workshop @ ICML 2026**.
+
+- date: "06/2026"
+  text: >-
+    New preprint with Paul Scotti and Tanishq Abraham — [Compress-Distill: Reasoning Trace Compression for Efficient Knowledge Distillation](https://arxiv.org/abs/2606.05988).
+
+- date: "05/2026"
+  text: >-
+    Presented [Chopper](/projects/), our clinical assistant integrated in Epic, to a visiting Japanese ministerial delegation at the Cliniques Universitaires Saint-Luc.
+
+
+- date: "03/2026"
+  text: >-
+    Joined **Sophont** to work on distillation of reasoning models, through May 2026.
+
+- date: "03/2026"
+  text: >-
+    Defended my **PhD in Computer Science** at UCLouvain — [*A Methodology for Developing and Integrating Large Language Models into Electronic Health Records to Support Clinical Workflows*](https://research.dial.uclouvain.be/entities/publication/9deb31c1-8881-4c08-81ad-bbb360e533b3).
+
+- date: "03/2026"
+  text: >-
+    [MedRiskEval](https://aclanthology.org/2026.eacl-industry.39/), a medical risk evaluation benchmark built around patient as well as clinician perspectives, is out at **EACL 2026** (Industry Track).
+
+- date: "07/2025"
+  text: >-
+    Our paper [Pattern recognition or medical knowledge? The problem with multiple-choice questions in medicine](https://aclanthology.org/2025.acl-long.266/) received a **Senior Area Chair Highlight** at **ACL 2025**.
+
+- date: "07/2025"
+  text: >-
+    The clinical agent we deployed in Epic at the Cliniques Universitaires Saint-Luc was covered by [RTL Info](https://www.rtl.be/page-videos/les-cliniques-saint-luc-utilisent-une-ia-pour-acceder-aux-donnees-des-patients/2025-07-31/video/758455).
+
+- date: "01/2025"
+  text: >-
+    [Large language models lack essential metacognition for reliable medical reasoning](https://www.nature.com/articles/s41467-024-55628-6) is out in **Nature Communications**.

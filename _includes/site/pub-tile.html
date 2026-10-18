@@ -1,0 +1,24 @@
+{%- assign pub = include.pub -%}
+{%- assign year = pub.date | date: "%Y" -%}
+{%- assign link = pub.paperurl | default: pub.pdf | default: pub.url -%}
+{%- assign first_topic = pub.topics | first -%}
+{%- assign topic = site.data.topics | where: "slug", first_topic | first -%}
+<div class="pub-tile">
+  {%- if pub.thumbnail %}
+  <a href="{{ link }}"><img class="pub-tile-img" src="{{ pub.thumbnail | relative_url }}" alt="" loading="lazy"></a>
+  {%- else %}
+  <a class="pub-tile-cover" href="{{ link }}" tabindex="-1" aria-hidden="true">
+    <span class="cover-venue">{{ pub.venue_long | default: pub.venue }}</span>
+    <span class="cover-year">{{ year }}{% if pub.award %} · {{ pub.award }}{% endif %}</span>
+  </a>
+  {%- endif %}
+  <div class="pub-tile-body">
+    {% if topic %}<span class="pub-tile-tag">{{ topic.label }}</span>{% else %}<span></span>{% endif %}
+    <div class="pub-tile-title"><a href="{{ link }}">{{ pub.title }}</a></div>
+    <div class="pub-tile-buttons">
+      {%- if pub.paperurl %}<a class="btn-sm" href="{{ pub.paperurl }}">paper</a>{% endif %}
+      {%- if pub.code %}<a class="btn-sm" href="{{ pub.code }}">code</a>{% endif %}
+      {%- for l in pub.extra_links %}<a class="btn-sm" href="{{ l.url }}">{{ l.label }}</a>{% endfor %}
+    </div>
+  </div>
+</div>

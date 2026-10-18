@@ -7,4 +7,7 @@ date: 2024-01-01
 venue: 'Zenodo'
 paperurl: 'https://zenodo.org/records/14177940'
 citation: 'Griot, M., Hemptinne, C., Vanderdonckt, J., &amp; Yuksel, D. (2024). &quot;MetaMedQA benchmark.&quot; <i>Zenodo</i>.'
+authors: 'M. Griot, C. Hemptinne, J. Vanderdonckt, and D. Yuksel'
+venue_short: 'Dataset'
+topics: [evaluation, safety]
 ---

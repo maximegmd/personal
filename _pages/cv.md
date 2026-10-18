@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Research Scientist and Medical Doctor building and evaluating large language models for high-stakes settings. My work spans post-training, alignment, adversarial evaluation, uncertainty/calibration, and production deployment of LLM systems. I have led end-to-end development of medical LLMs, safety evaluation pipelines, and an Epic-integrated clinical agent used by 3000+ clinicians across 150,000+ clinical interactions. I bring a rare combination of clinical expertise, research leadership, and deep systems engineering experience across training, inference, and large-scale software infrastructure. I am especially interested in trustworthy reasoning, scalable oversight, and robust deployment of frontier models in real-world environments.
+AI safety and alignment researcher and Medical Doctor. My work spans alignment, adversarial evaluation and red teaming, uncertainty/calibration, post-training, and the safe deployment of LLM systems in high-stakes settings. I have led end-to-end development of medical LLMs, safety evaluation pipelines, and an Epic-integrated clinical agent used by 3,900+ clinicians across 250,000+ clinical interactions. I bring a rare combination of clinical expertise, research leadership, and deep systems engineering experience across training, inference, and large-scale software infrastructure. I am especially interested in trustworthy reasoning, scalable oversight, and robust deployment of frontier models in real-world environments.
 
 Education
 ======
@@ -22,14 +22,20 @@ Education
 Experience
 ======
 
-**Postdoctoral Researcher** — *Stanford University* (Remote / San Francisco, CA) &nbsp;&middot;&nbsp; April 2026 – present
-* Designing and implementing medical benchmarks for LLMs
-* Red teaming multimodal frontier models with adversarial attacks
+**AI Safety Research Fellow** — *Anthropic* &nbsp;&middot;&nbsp; Starting November 2026
+
+**Independent Researcher** — *Jonathan Chen's lab, Stanford University* (Remote) &nbsp;&middot;&nbsp; August 2026 – present
+* Anonymization of clinical data
+* Synthetic data generation
+* Evaluations of LLMs for medical tasks
+
+**Researcher** — *Sophont* &nbsp;&middot;&nbsp; March – May 2026
+* Knowledge distillation of reasoning models: compressing chain-of-thought traces before distillation ([Compress-Distill](https://arxiv.org/abs/2606.05988))
 
 **Research Scientist** — *Université Catholique de Louvain* (Brussels) &nbsp;&middot;&nbsp; October 2023 – March 2026
 * Trained **Internist-7B**, a 7B-parameter medical LLM based on Mistral; first model of its size to surpass **60%** on MedQA. Public release: [internistai/base-7b-v0.2](https://huggingface.co/internistai/base-7b-v0.2)
 * Designed and implemented **alignment and safety evaluation pipelines** including automated adversarial red teaming, hallucination suppression, self-critique, and metacognitive reasoning assessment for clinical reliability
-* Led end-to-end deployment of a **clinical agentic system** integrated with **Epic EHR** — model serving, inference orchestration, clinician-facing UI, safety guardrails, auditability, and monitoring; in production with **3000+ clinical users** across **150,000+ clinical interactions**. Press: [RTL Info](https://www.rtl.be/page-videos/les-cliniques-saint-luc-utilisent-une-ia-pour-acceder-aux-donnees-des-patients/2025-07-31/video/758455)
+* Led end-to-end deployment of a **clinical agentic system** integrated with **Epic EHR** — model serving, inference orchestration, clinician-facing UI, safety guardrails, auditability, and monitoring; in production with **3,900+ clinical users** across **250,000+ clinical interactions**. Press: [RTL Info](https://www.rtl.be/page-videos/les-cliniques-saint-luc-utilisent-une-ia-pour-acceder-aux-donnees-des-patients/2025-07-31/video/758455)
 * Visiting Researcher, **Harvard University (LiGHT)** — evaluated alignment techniques for clinical LLMs with practicing clinicians as part of the [MOOVE](https://jointhemoove.org/) initiative
 * Visiting Researcher, **Cleveland Clinic** — trained Qwen-based models with **GRPO** for safe de-identification of clinical documents while preserving semantic fidelity
 
@@ -74,6 +80,5 @@ Skills
 
 Publications
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+{% assign cv_pubs = site.publications | sort: "date" | reverse %}
+<ol class="bibliography">{% for pub in cv_pubs %}{% include site/pub-entry.html pub=pub suffix="-cv" %}{% endfor %}</ol>

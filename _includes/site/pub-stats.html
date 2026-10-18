@@ -1,0 +1,12 @@
+{%- assign n_all = site.publications | size -%}
+{%- assign n_journal = site.publications | where: "category", "manuscripts" | size -%}
+{%- assign n_conf = site.publications | where: "category", "conferences" | size -%}
+{%- assign n_book = site.publications | where: "category", "books" | size -%}
+{%- assign n_pre = site.publications | where: "category", "preprints" | size -%}
+<div class="publication-stats">
+  <span class="stat"><span class="num">{{ n_all }}</span>publications</span>
+  {%- if n_journal > 0 %}<span class="stat"><span class="num">{{ n_journal }}</span>journal</span>{% endif %}
+  {%- if n_conf > 0 %}<span class="stat"><span class="num">{{ n_conf }}</span>conference &amp; workshop</span>{% endif %}
+  {%- if n_pre > 0 %}<span class="stat"><span class="num">{{ n_pre }}</span>preprint{% if n_pre > 1 %}s{% endif %}</span>{% endif %}
+  {%- if n_book > 0 %}<span class="stat"><span class="num">{{ n_book }}</span>book chapter{% if n_book > 1 %}s{% endif %}</span>{% endif %}
+</div>

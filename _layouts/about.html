@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<article class="about">
+  <div class="profile-row">
+    <div class="profile-photo">
+      <img src="{{ site.author.avatar | prepend: '/images/' | relative_url }}" alt="Photo of {{ site.author.name }}" width="747" height="747">
+    </div>
+    <div class="profile-main">
+      <div class="profile-head">
+        <h1>{{ site.author.name }}</h1>
+        {% include site/social.html %}
+      </div>
+      {% if page.roles %}
+      <div class="callout">
+        {%- for role in page.roles %}
+        {{ role | markdownify | remove: '<p>' | remove: '</p>' | strip }}{% unless forloop.last %}<br>{% endunless %}
+        {%- endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <section class="about-text">
+    <h3 class="section-header">{{ page.content_header | default: "Research" }}</h3>
+    {{ content }}
+  </section>
+
+  {%- assign highlights = site.publications | where: "highlight", true | sort: "highlight_order" -%}
+  {% if highlights.size > 0 %}
+  <section class="pub-tiles-wrap">
+    <div class="pub-tiles-header">
+      <span class="pub-tiles-label">Highlighted publications</span>
+      <a class="section-link" href="{{ '/publications/' | relative_url }}">view all →</a>
+    </div>
+    <div class="pub-tiles">
+      {% for pub in highlights limit: 4 %}{% include site/pub-tile.html pub=pub %}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if site.data.news and site.data.news.size > 0 %}
+  {%- assign news_limit = page.news_limit | default: 6 -%}
+  <section class="news">
+    <h2 class="section-header">latest news</h2>
+    <div class="news-list">
+      {% for item in site.data.news limit: news_limit %}
+      <div class="news-entry">
+        <span class="news-date">{{ item.date }}</span>
+        <span class="news-content">{{ item.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="publications">
+    <h2 class="section-header">latest publications <a href="{{ '/publications/' | relative_url }}">view all →</a></h2>
+    {% include site/pub-stats.html %}
+    {%- assign recent = site.publications | sort: "date" | reverse -%}
+    <ol class="bibliography">
+      {% for pub in recent limit: 5 %}{% include site/pub-entry.html pub=pub suffix="-home" %}{% endfor %}
+    </ol>
+  </section>
+</article>

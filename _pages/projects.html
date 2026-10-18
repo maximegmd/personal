@@ -2,31 +2,26 @@
 layout: archive
 title: "Projects"
 permalink: /projects/
-author_profile: true
+description: "Models and systems I have built."
 ---
-
-{% include base_path %}
 
 {% assign sorted_projects = site.projects | sort: 'order' %}
 
+<div class="project-list">
 {% for project in sorted_projects %}
-<div class="project-card">
-  {% if project.image %}
-  <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" class="project-card__image" />
-  {% endif %}
-  <div class="project-card__body">
-    <p>
-      <b>{{ project.title }}:</b>
-      {{ project.content | markdownify | remove: '<p>' | remove: '</p>' }}
-    </p>
-    {% if project.links %}
-    <p class="project-card__links">
-      {% for link in project.links %}
-        <a href="{{ link.url }}">{{ link.label }}</a>{% unless forloop.last %} &middot; {% endunless %}
-      {% endfor %}
-    </p>
-    {% endif %}
+  {%- assign img = nil -%}
+  {%- if project.image -%}{%- assign img = site.static_files | where: "path", project.image | first -%}{%- endif -%}
+  <div class="project-card{% unless img %} no-image{% endunless %}">
+    {% if img %}<img src="{{ project.image | relative_url }}" alt="{{ project.title }}" loading="lazy">{% endif %}
+    <div class="project-body">
+      <h2 class="project-title">{{ project.title }}</h2>
+      {{ project.content }}
+      {% if project.links %}
+      <div class="bib-links">
+        {% for link in project.links %}<a class="btn-sm" href="{{ link.url }}">{{ link.label | downcase }}</a>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
   </div>
-</div>
-<div class="clear"></div>
 {% endfor %}
+</div>
