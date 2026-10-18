@@ -24,7 +24,7 @@ Experience
 
 **AI Safety Research Fellow** — *Anthropic* &nbsp;&middot;&nbsp; Starting November 2026
 
-**Independent Researcher** — *Jonathan Chen's lab, Stanford University* (Remote) &nbsp;&middot;&nbsp; August 2026 – present
+**Independent Researcher** — *[ARISE](https://www.arise-ai.org/), Jonathan Chen's lab, Stanford University* (Remote) &nbsp;&middot;&nbsp; August 2026 – present
 * Anonymization of clinical data
 * Synthetic data generation
 * Evaluations of LLMs for medical tasks

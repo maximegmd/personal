@@ -208,7 +208,7 @@ html[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
 /* ---------- Profile (home) ---------- */
 
 .profile-row {
-  display: grid; grid-template-columns: 1fr 2fr; gap: 30px; align-items: start;
+  display: grid; grid-template-columns: 220px 1fr; gap: 30px; align-items: start;
   margin-top: 1rem;
 }
 .profile-photo img { display: block; width: 100%; height: auto; border-radius: 0.25rem; }
@@ -241,7 +241,7 @@ html[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
 @media (max-width: 575.98px) {
   .profile-row { grid-template-columns: 1fr; gap: 1.25rem; }
   .profile-photo { display: flex; justify-content: center; }
-  .profile-photo img { width: 55%; }
+  .profile-photo img { width: 45%; }
   .profile-head { flex-direction: column; text-align: center; gap: 0.6rem; }
   .about-text p { text-align: left; }
 }
