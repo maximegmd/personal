@@ -23,7 +23,7 @@ repository               : "maximegmd/personal"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Maxime Griot"
   pronouns         : # example: "she/her"  
   bio              : "AI safety and alignment researcher and medical doctor"
@@ -144,7 +144,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : profile.png  # Social media default site image (lives in /images/)
+og_image                 : profile.jpg  # Social media default site image (lives in /images/)
 og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
